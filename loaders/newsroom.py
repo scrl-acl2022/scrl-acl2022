@@ -32,6 +32,10 @@ class NewsroomDatasetValidation(datasets.GeneratorBasedBuilder):
                 name=datasets.Split.TRAIN,
                 gen_kwargs={"path": os.path.join(data_dir, "train.jsonl"), "name": "train"}
             ),
+            datasets.SplitGenerator(
+                name=datasets.Split.VALIDATION,
+                gen_kwargs={"path": os.path.join(data_dir, "val.jsonl"), "name": "validation"}
+            ),
         ]
 
     def _generate_examples(self, path=None, name=None):
